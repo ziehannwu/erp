@@ -1,42 +1,25 @@
-# erp
+# ERP
+旨在开发关于个人财富管理的后端,包含现金、股票、未来预期.
 
-This template should help get you started developing with Vue 3 in Vite.
+## 开发初衷
+由于目前所有app似乎都没有将物品资产管理APP和记账APP合并,好多功能要分俩个甚至三个账户使用,相当麻烦.
+于是乎,我想自己开发出来供和我有一样困惑的用户使用,同时秉承学习的态度开发此应用,open项目,如果市场需求很多的话,我或许会考虑上线该app方便普通用户使用.提供VIP订阅服务,用于运营成本,后续有赞助商之类的,能填补运营成本,刚开始付费的用户会退款处理,并且赠送些以下待遇(如果符合法律情况下)
+  1.皮肤主题
+  2.更快的链路
+  3.定期赠送5、10、20、50现金红包
+  .......
 
-## Recommended IDE Setup
+## 技术选型
+### Web页面
+Vue3+ElementPlus+ECharts
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
 
-## Recommended Browser Setup
+### 移动应用
+#### 安卓/微信小程序
+Vue3+
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+#### iOS
+Swift+SwiftData+SwiftUI
 
-## Type Support for `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
+### 后端
+Java21 + SpringBoot + MySQL + 
