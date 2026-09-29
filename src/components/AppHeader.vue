@@ -31,11 +31,9 @@
           </div>
           <template #dropdown>
             <el-dropdown-menu>
-              <el-dropdown-item disabled>{{ currentUser.name }}</el-dropdown-item>
-              <el-dropdown-item divided>个人资料</el-dropdown-item>
-              <el-dropdown-item>修改密码</el-dropdown-item>
+              <el-dropdown-item><RouterLink :to="{name:'MyCenter'}" >个人中心</RouterLink></el-dropdown-item>
               <el-dropdown-item divided @click="switchAccount">切换账号</el-dropdown-item>
-              <el-dropdown-item divided @click="logout">退出登录</el-dropdown-item>
+              <el-dropdown-item  @click="logout">退出登录</el-dropdown-item>
             </el-dropdown-menu>
           </template>
         </el-dropdown>

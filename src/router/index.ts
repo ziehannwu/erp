@@ -38,9 +38,19 @@ const router = createRouter({
       component: () => import('@/views/flowViews/FlowPanel.vue'),
     },
     {
+      name: 'flowInitiate',
+      path: '/flow-initiate',
+      component: () => import('@/views/flowViews/FlowInitiate.vue'),
+    },
+    {
       name: 'pendingFlow',
       path: '/pending-flow',
       component: () => import('@/views/flowViews/PendingFlow.vue'),
+    },
+    {
+      name: 'flowDetail',
+      path: '/flow-detail/:id',
+      component: () => import('@/views/flowViews/FlowDetail.vue'),
     },
     {
       name: 'processedFlow',
@@ -67,6 +77,11 @@ const router = createRouter({
       path: '/code-creator',
       component: () => import('@/views/settingViews/CodeCreator.vue'),
     },
+    {
+      name: 'MyCenter',
+      path: '/MyCenter',
+      component:() => import('@/views/myCenter/MyCenter.vue')
+    }
   ],
 })
 

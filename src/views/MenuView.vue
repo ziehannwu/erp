@@ -31,8 +31,9 @@
 import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { Setting, Tickets, User, WindPower 
-  ,House
+  ,House,Coin
 } from '@element-plus/icons-vue'
+// import { title } from 'process'
 
 const route = useRoute()
 const router = useRouter()
@@ -115,7 +116,32 @@ const menuList: MenuItem[] = [
       },
     ],
   },
-  
+  {
+    title: '资产中心',
+    icon: Coin,
+    children: [
+      {
+        title: '我的资产',
+        linkPath: '/MyAsset',
+      },
+      {
+        title: '查询库存',
+        linkPath: '/SearchAsset'
+      },
+      {
+        title: '设备台账',
+        linkPath: ''
+      },
+      {
+        title: '软件台账',
+        linkPath: ''
+      },
+      {
+        title: '耗材台账',
+        linkPath: ''
+      }
+    ]
+  },
   {
     title: '部门中心',
     icon: User,
@@ -154,6 +180,10 @@ const menuList: MenuItem[] = [
       {
         title: '流程面板',
         linkPath: '/flow-panel',
+      },
+      {
+        title: '流程发起',
+        linkPath: '/flow-initiate',
       },
       {
         title: '待处理流程',

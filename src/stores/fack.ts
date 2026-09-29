@@ -1,3 +1,5 @@
+import { reactive } from 'vue'
+
 export type StaffStatus = '启用' | '停用'
 export type JobStatus = '实习' | '试用' | '正式'
 
@@ -19,6 +21,41 @@ export type StaffItem = {
   email: string | null
   job: string | null
   jobStatus: JobStatus | null
+}
+
+export type FlowItem = {
+  id: number
+  title: string
+  creatorId: number
+  createdAt: string
+  expectedCompletionAt: string
+  pendingOperators: string[]
+  requestType: string
+  device: string
+  applicantIds: number[]
+  reason: string
+  requestedChanges: string
+  isRead: boolean
+  isFollowed: boolean
+  transferHistory?: FlowTransferRecord[]
+  approvalOpinions?: FlowApprovalOpinion[]
+}
+
+export type FlowTransferRecord = {
+  from: string
+  to: string
+  reason: string
+  transferredAt: string
+}
+
+export type FlowApprovalOpinion = {
+  leaderName: string
+  department: string
+  position: string
+  remark: string
+  recipient: string
+  time: string
+  action: string
 }
 
 export const getAgeFromIdCard = (idCard: string | null | undefined): number | null => {
@@ -125,3 +162,66 @@ export const staffList: StaffItem[] = [
     jobStatus: '实习',
   },
 ]
+
+export const pendingFlowList: FlowItem[] = reactive([
+  {
+    id: 1001,
+    title: '财务系统权限调整申请',
+    creatorId: 2,
+    createdAt: '2026-09-27 09:18',
+    expectedCompletionAt: '2026-10-02',
+    pendingOperators: ['信息部管理员', '张晓丽'],
+    requestType: '系统权限变更',
+    device: '财务管理系统',
+    applicantIds: [2],
+    reason: '月度结账工作需要新增报表查看权限。',
+    requestedChanges: '为财务分析岗位开通月报与凭证查询权限。',
+    isRead: false,
+    isFollowed: false,
+  },
+  {
+    id: 1002,
+    title: '采购工作站设备更换',
+    creatorId: 4,
+    createdAt: '2026-09-26 14:32',
+    expectedCompletionAt: '2026-10-05',
+    pendingOperators: ['信息部管理员'],
+    requestType: '设备申请',
+    device: '办公电脑',
+    applicantIds: [4],
+    reason: '现用设备运行缓慢，影响采购订单处理。',
+    requestedChanges: '申请更换为标准办公工作站，需支持采购管理系统。',
+    isRead: true,
+    isFollowed: false,
+  },
+  {
+    id: 1003,
+    title: '前端开发环境配置申请',
+    creatorId: 3,
+    createdAt: '2026-09-25 11:06',
+    expectedCompletionAt: '2026-10-01',
+    pendingOperators: ['信息部管理员', '张晓丽'],
+    requestType: '开发环境变更',
+    device: '开发工作站',
+    applicantIds: [3],
+    reason: '当前开发环境缺少项目所需的构建工具。',
+    requestedChanges: '安装并配置 Node.js LTS 与团队统一的依赖镜像。',
+    isRead: false,
+    isFollowed: true,
+  },
+  {
+    id: 1004,
+    title: '员工信息字段调整',
+    creatorId: 1,
+    createdAt: '2026-09-24 16:45',
+    expectedCompletionAt: '2026-10-08',
+    pendingOperators: ['信息部管理员'],
+    requestType: '流程配置变更',
+    device: '人员管理系统',
+    applicantIds: [1, 3],
+    reason: '现有人员档案无法记录员工的专业方向。',
+    requestedChanges: '在人员信息中增加“专业方向”字段并设为可选。',
+    isRead: true,
+    isFollowed: false,
+  },
+])
